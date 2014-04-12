@@ -8,6 +8,8 @@ role :app, %w{skynet@skynet.feedhammer.com}
 role :web, %w{skynet@skynet.feedhammer.com}
 role :db,  %w{skynet@skynet.feedhammer.com}
 
+set :rails_env, "production"
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
