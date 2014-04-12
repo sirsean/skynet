@@ -39,6 +39,7 @@ end
 gem 'unicorn'
 
 gem 'capistrano'
+gem 'capistrano-bundler'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
