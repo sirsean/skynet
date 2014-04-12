@@ -20,6 +20,12 @@ function showPicture(file) {
     var d = colorThief.getColor($("#show-picture")[0]);
     console.log(d);
     $("#dominant-color").css("background-color", "rgb(" + d.join(",") + ")");
+
+    var palette = colorThief.getPalette($("#show-picture")[0]);
+    console.log(palette, 6);
+    for (var i=0; i < palette.length; i++) {
+      $("#palette-color-" + i).css("background-color", "rgb(" + palette[i].join(",") + ")");
+    }
   }, 100);
 }
 
