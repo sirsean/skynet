@@ -40,6 +40,7 @@ gem 'unicorn'
 
 gem 'capistrano'
 gem 'capistrano-bundler'
+gem 'capistrano-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
