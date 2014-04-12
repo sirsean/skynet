@@ -10,6 +10,10 @@ role :db,  %w{skynet@skynet.feedhammer.com}
 
 set :rails_env, "production"
 
+after 'deploy:update_code' do
+  run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+end
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
