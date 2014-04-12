@@ -44,6 +44,7 @@ gem 'unicorn'
 gem 'capistrano', group: :development
 gem 'capistrano-unicorn', group: :development
 gem 'capistrano-bundler', group: :development
+gem 'capistrano-chruby', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
