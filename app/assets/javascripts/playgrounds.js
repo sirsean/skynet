@@ -1,10 +1,8 @@
 function showPicture(file) {
   var show = $("#show-picture");
-  console.log(show);
 
   // Get window.URL object
   var URL = window.URL || window.webkitURL;
-  console.log(URL);
    
   // Create ObjectURL
   var imgURL = URL.createObjectURL(file);
@@ -13,9 +11,16 @@ function showPicture(file) {
   // Set img src to ObjectURL
   //show.src = imgURL;
   show.attr("src", imgURL);
-   
+
   // For performance reasons, revoke used ObjectURLs
   URL.revokeObjectURL(imgURL);
+
+  setTimeout(function() {
+    var colorThief = new ColorThief();
+    var d = colorThief.getColor($("#show-picture")[0]);
+    console.log(d);
+    $("#dominant-color").css("background-color", "rgb(" + d.join(",") + ")");
+  }, 100);
 }
 
 console.log("hi");
