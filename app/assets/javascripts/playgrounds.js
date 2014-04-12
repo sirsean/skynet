@@ -1,14 +1,18 @@
 function showPicture(file) {
   var show = $("#show-picture");
+  console.log(show);
 
   // Get window.URL object
   var URL = window.URL || window.webkitURL;
+  console.log(URL);
    
   // Create ObjectURL
   var imgURL = URL.createObjectURL(file);
+  console.log(imgURL);
    
   // Set img src to ObjectURL
-  show.src = imgURL;
+  //show.src = imgURL;
+  show.attr("src", imgURL);
    
   // For performance reasons, revoke used ObjectURLs
   URL.revokeObjectURL(imgURL);
