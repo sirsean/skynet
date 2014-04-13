@@ -71,9 +71,6 @@ function showPicture(file) {
 
   show.on("load", function() {
     console.log("onload");
-    console.log(this);
-    console.log(this.width);
-    console.log(this.height);
     var colorThief = new ColorThief();
 
     var closest = [];
@@ -97,7 +94,7 @@ function showPicture(file) {
       var div = $("#palette-color-" + i);
       console.log(closest[i]);
       div.css("background-color", rgbCss(closest[i].known));
-      div.text(closest[i].distance);
+      div.text(Math.floor(closest[i].distance));
       div.attr("data-blue-factor", closest[i].knownFactorIndex);
     }
   });
