@@ -9,7 +9,7 @@
     <p>Try to get a good picture of the sky with nothing else in it. If that's impossible, do your best.</p>
   </div>
   <div id="picture-container">
-    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="img-responsive center-block"></img>
+    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="img-responsive center-block uploaded-photo"></img>
 
     <div class="row no-margin">
       <div id="palette-color-0" class="palette-color col-xs-4 text-center" data-palette-index="0">
@@ -32,7 +32,7 @@
   <%= f.hidden_field :blue_factor, id: "submission-blue-factor" %>
 
   <div class="row no-margin submit-row footer">
-    <div class="pull-left left-margin">
+    <div class="pull-left">
       <div id="step-1" class="step">
         Take a photo of the sky.
       </div>
@@ -43,13 +43,13 @@
         Click save to see results.
       </div>
     </div>
-    <div id="camera-container" class="pull-right right-margin">
+    <div id="camera-container" class="pull-right">
       <span class="btn btn-default btn-file center-block btn-lower-right">
         <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
         <h2 class="glyphicon glyphicon-camera"></h2>
       </span>
     </div>
-    <div id="submit-container" class="pull-right right-margin">
+    <div id="submit-container" class="pull-right">
       <%# f.submit id: "submit-button", class: "center-block btn btn-default btn-lg btn-lower-right", value: "Save" %>
       <button type="submit" class="btn btn-default btn-lower-right">
         <h2 class="glyphicon glyphicon-share-alt"></h2>

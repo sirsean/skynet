@@ -29,7 +29,11 @@ h1 {
 
 .footer {
   border-top: 2px solid $text-color;
-  padding-top: 12px;
+  border-bottom: 2px solid $text-color;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
 }
 
 .btn-default {
@@ -48,14 +52,6 @@ h1 {
     margin: 0px;
     padding: 0px;
     font-size: 20pt;
-  }
-
-  .right-margin {
-    margin-right: 16px;
-  }
-
-  .left-margin {
-    margin-left: 16px;
   }
 
   .step {
@@ -101,9 +97,11 @@ h1 {
 #initial-container {
   height: 370px;
   padding: 30px;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
-#show-picture {
+.uploaded-photo {
   height: 300px;
 }
 
