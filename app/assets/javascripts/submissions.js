@@ -126,6 +126,15 @@ function showPicture(file) {
 }
 
 function updateDisplay(state) {
+  // the main part of the screen
+  $("#initial-container").hide();
+  $("#picture-container").hide();
+  if (state != "empty") {
+    $("#picture-container").show();
+  } else {
+    $("#initial-container").show();
+  }
+
   // which button to show
   $("#submit-container").hide();
   $("#camera-container").hide();
@@ -145,15 +154,6 @@ function updateDisplay(state) {
     $("#step-2").show();
   } else if (state == "ready") {
     $("#step-3").show();
-  }
-
-  // the main part of the screen
-  $("#initial-container").hide();
-  $("#picture-container").hide();
-  if (state != "empty") {
-    $("#picture-container").show();
-  } else {
-    $("#initial-container").show();
   }
 }
 
