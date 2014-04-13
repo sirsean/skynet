@@ -2,14 +2,21 @@
 
 <%= form_for :submission, url: submissions_path do |f| %>
 
-  <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4">
+      <span class="btn btn-default btn-file center-block">
+        <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
+        Take Photo
+      </span>
+    </div>
+  </div>
   <div id="picture-container">
     <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="height: 300px;" class="img-responsive center-block"></img>
   </div>
   <div class="row">
-    <div id="palette-color-0" class="palette-color col-xs-4 col-sm-4"></div>
-    <div id="palette-color-1" class="palette-color col-xs-4 col-sm-4"></div>
-    <div id="palette-color-2" class="palette-color col-xs-4 col-sm-4"></div>
+    <div id="palette-color-0" class="palette-color col-xs-4"></div>
+    <div id="palette-color-1" class="palette-color col-xs-4"></div>
+    <div id="palette-color-2" class="palette-color col-xs-4"></div>
   </div>
 
   <%= f.hidden_field :latitude, id: "submission-latitude" %>
