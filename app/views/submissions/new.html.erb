@@ -6,11 +6,13 @@
 
   <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
   <div id="picture-container">
-    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="height: 300px;"></img>
+    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="height: 300px;" class="img-responsive center-block"></img>
   </div>
-  <div id="palette-color-0" class="palette-color" style="height: 30px"></div>
-  <div id="palette-color-1" class="palette-color" style="height: 30px"></div>
-  <div id="palette-color-2" class="palette-color" style="height: 30px"></div>
+  <div class="row">
+    <div id="palette-color-0" class="palette-color col-xs-6 col-sm-4"></div>
+    <div id="palette-color-1" class="palette-color col-xs-6 col-sm-4"></div>
+    <div id="palette-color-2" class="palette-color col-xs-6 col-sm-4"></div>
+  </div>
 
   <%= f.hidden_field :latitude, id: "submission-latitude" %>
   <%= f.hidden_field :longitude, id: "submission-longitude" %>
