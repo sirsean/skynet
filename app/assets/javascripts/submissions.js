@@ -32,7 +32,7 @@ ReadySubmissionShow = function() {
   var color = knownFactors[$("#submission").attr("data-blue-factor")];
   console.log(color);
   console.log(rgbCss(color));
-  $(document.body).css("background-color", rgbCss(color));
+  $(".show-submission").css("background-color", rgbCss(color));
 
   $("#factor-row .blue-factor-box").each(function(index, box) {
     $(box).css("background-color", rgbCss(knownFactors[index]));
