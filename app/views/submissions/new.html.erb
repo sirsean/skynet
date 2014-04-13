@@ -1,7 +1,5 @@
 <span id="submissions-new"></span>
 
-<h1>Check your sky</h1>
-
 <%= form_for :submission, url: submissions_path do |f| %>
 
   <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
@@ -18,5 +16,5 @@
   <%= f.hidden_field :longitude, id: "submission-longitude" %>
   <%= f.hidden_field :blue_factor, id: "submission-blue-factor" %>
 
-  <%= f.submit %>
+  <%= f.submit class: "center-block btn btn-default btn-lg", value: "Submit" %>
 <% end %>
