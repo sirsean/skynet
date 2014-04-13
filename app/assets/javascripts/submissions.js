@@ -94,7 +94,7 @@ function showPicture(file) {
       var div = $("#palette-color-" + i);
       console.log(closest[i]);
       div.css("background-color", rgbCss(closest[i].known));
-      div.text(Math.floor(closest[i].distance));
+      div.find(".distance").text(Math.floor(closest[i].distance));
       div.attr("data-blue-factor", closest[i].knownFactorIndex);
     }
   });

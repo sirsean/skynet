@@ -25,3 +25,10 @@
     cursor: inherit;
     display: block;
 }
+
+.center {
+    //display:inline-block;
+    //vertical-align:middle;
+    float:none;
+    margin: 0 auto;
+}
