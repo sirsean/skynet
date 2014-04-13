@@ -1,0 +1,8 @@
+<% @submissions.each do |submission| %>
+  <div class="dashboard-photo blue-factor-<%= submission.blue_factor %>">
+    <a href="<%= submission_path(submission) %>">
+    <%= image_tag submission.photo, class: "img-rounded", style: "height: 200px;" %>
+    </a>
+  </div>
+<% end %>
+<div class="clearfix"></div>
