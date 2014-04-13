@@ -33,6 +33,10 @@ ReadySubmissionShow = function() {
   console.log(color);
   console.log(rgbCss(color));
   $(document.body).css("background-color", rgbCss(color));
+
+  $("#factor-row .blue-factor-box").each(function(index, box) {
+    $(box).css("background-color", rgbCss(knownFactors[index]));
+  });
 };
 $(document).ready(ReadySubmissionShow);
 $(document).on("page:load", ReadySubmissionShow);

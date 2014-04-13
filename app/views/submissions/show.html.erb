@@ -4,10 +4,16 @@
   data-blue-factor="<%= @submission.blue_factor %>"
   ></span>
 
-<div class="row no-margin">
-  <%= image_tag @submission.photo, class: "col-xs-12" %>
+<%= image_tag @submission.photo, class: "img-responsive center-block", style: "height: 300px;" %>
+<div id="factor-row" class="row no-margin">
+  <div class="blue-factor-box col-xs-offset-3 col-xs-1"></div>
+  <div class="blue-factor-box col-xs-1"></div>
+  <div class="blue-factor-box col-xs-1"></div>
+  <div class="blue-factor-box col-xs-1"></div>
+  <div class="blue-factor-box col-xs-1"></div>
+  <div class="blue-factor-box col-xs-1"></div>
 </div>
 
+<br />
 <p>Latitude: <%= @submission.latitude %></p>
 <p>Longitude: <%= @submission.longitude %></p>
-<p>Blue Factor: <%= @submission.blue_factor %></p>
