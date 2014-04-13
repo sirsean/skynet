@@ -93,6 +93,7 @@ function showPicture(file) {
   // For performance reasons, revoke used ObjectURLs
   URL.revokeObjectURL(imgURL);
 
+  updateMainWindow("photo");
   show.on("load", function() {
     console.log("onload");
     var colorThief = new ColorThief();
@@ -125,15 +126,12 @@ function showPicture(file) {
   });
 }
 
+// the state can be:
+// "empty"
+// "photo"
+// "ready"
 function updateDisplay(state) {
-  // the main part of the screen
-  $("#initial-container").hide();
-  $("#picture-container").hide();
-  if (state != "empty") {
-    $("#picture-container").show();
-  } else {
-    $("#initial-container").show();
-  }
+  updateMainWindow(state);
 
   // which button to show
   $("#submit-container").hide();
@@ -154,6 +152,17 @@ function updateDisplay(state) {
     $("#step-2").show();
   } else if (state == "ready") {
     $("#step-3").show();
+  }
+}
+
+function updateMainWindow(state) {
+  // the main part of the screen
+  $("#initial-container").hide();
+  $("#picture-container").hide();
+  if (state != "empty") {
+    $("#picture-container").show();
+  } else {
+    $("#initial-container").show();
   }
 }
 
