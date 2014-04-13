@@ -4,7 +4,7 @@
   data-blue-factor="<%= @submission.blue_factor %>"
   ></span>
 
-<h1>Submitted photo</h1>
+<%= image_tag @submission.photo, width: 400, height: 400 %>
 
 <p>Latitude: <%= @submission.latitude %></p>
 <p>Longitude: <%= @submission.longitude %></p>

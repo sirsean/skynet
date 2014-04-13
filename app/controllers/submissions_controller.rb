@@ -23,6 +23,6 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:latitude, :longitude, :blue_factor)
+    params.require(:submission).permit(:latitude, :longitude, :blue_factor, :photo)
   end
 end

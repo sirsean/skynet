@@ -4,7 +4,7 @@
 
 <%= form_for :submission, url: submissions_path do |f| %>
 
-  <input id="take-picture" name="photo" type="file" accept="image/*" capture="camera">
+  <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
   <div>
     <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="250" height="250"></img>
   </div>
