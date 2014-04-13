@@ -29,7 +29,7 @@ h1 {
 
 .footer {
   border-top: 2px solid $text-color;
-  border-bottom: 2px solid $text-color;
+  //border-bottom: 2px solid $text-color;
 
   .container {
     padding-top: 16px;
@@ -180,23 +180,40 @@ h1 {
 
 .show-submission {
   margin-top: 2px;
-  padding-top: 10px;
+  //padding-top: 10px;
 }
 
 .photo-summary-hero {
   h2 {
     margin: 14px;
     padding: 0px;
+    font-variant: small-caps;
+    font-weight: 600;
   }
+}
+
+.photo-summary-whole {
+  border-top: 1px solid $text-color;
 }
 
 .photo-summary {
   div {
-    border: 1px solid $text-color;
+    border-left: 1px solid $text-color;
+    border-right: 1px solid $text-color;
     font-weight: bold;
     text-align: center;
 
+    h4 {
+      font-size: 16px;
+      font-variant: small-caps;
+      font-weight: 300;
+    }
+
     p {
+      font-size: 18px;
+      text-transform: uppercase;
+      //font-variant: small-caps;
+      font-weight: 300;
       padding: 12px 0px 12px 0px;
       margin: 12px 0px 12px 0px;
     }

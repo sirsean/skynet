@@ -43,6 +43,7 @@ ReadySubmissionShow = function() {
 
   var photoSummary = factorSummaries[factor];
   console.log(photoSummary);
+  $(".photo-summary-hero h2").text(photoSummary.hero);
   $(".photo-summary .photo-summary-left").text(photoSummary.left);
   $(".photo-summary .photo-summary-middle").text(photoSummary.middle);
   $(".photo-summary .photo-summary-right").text(photoSummary.right);
@@ -60,12 +61,12 @@ var knownFactors = [
 ];
 
 var factorSummaries = [
-  { left: "left 0", middle: "middle 0", right: "right 0" },
-  { left: "left 1", middle: "middle 1", right: "right 1" },
-  { left: "left 2", middle: "middle 2", right: "right 2" },
-  { left: "left 3", middle: "middle 3", right: "right 3" },
-  { left: "left 4", middle: "middle 4", right: "right 4" },
-  { left: "left 5", middle: "middle 5", right: "right 5" }
+  { hero: "Beautiful Sky", left: "Perfect", middle: "Great", right: "Very Low" },
+  { hero: "hero 1", left: "Deep Blue", middle: "Unusually Clear", right: "Low" },
+  { hero: "hero 2", left: "Blue", middle: "Clear", right: "Low Medium" },
+  { hero: "hero 3", left: "Light Blue", middle: "Somewhat Hazy", right: "Medium" },
+  { hero: "hero 4", left: "Pale Blue", middle: "Very Hazy", right: "High Medium" },
+  { hero: "hero 5", left: "Milky", middle: "Extremely Hazy", right: "High" }
 ];
 
 // weighted distance between two RGB colors
