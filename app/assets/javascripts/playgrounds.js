@@ -51,8 +51,11 @@ function showPicture(file) {
       });
       closest.push(distances[0]);
     }
+    console.log("closest");
     for (var i=0; i < 3; i++) {
+      console.log(closest[i]);
       $("#palette-color-" + i).css("background-color", "rgb(" + closest[i].known.join(",") + ")");
+      $("#palette-color-" + i).text(closest[i].distance);
     }
   }, 100);
 }
