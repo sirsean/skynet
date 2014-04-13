@@ -1,0 +1,20 @@
+<span id="submissions-new"></span>
+
+<h1>Check your sky</h1>
+
+<%= form_for :submission, url: submissions_path do |f| %>
+
+  <input id="take-picture" name="photo" type="file" accept="image/*" capture="camera">
+  <div>
+    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="250" height="250"></img>
+  </div>
+  <div id="palette-color-0" class="palette-color" style="height: 30px"></div>
+  <div id="palette-color-1" class="palette-color" style="height: 30px"></div>
+  <div id="palette-color-2" class="palette-color" style="height: 30px"></div>
+
+  <%= f.hidden_field :latitude, id: "submission-latitude" %>
+  <%= f.hidden_field :longitude, id: "submission-longitude" %>
+  <%= f.hidden_field :blue_factor, id: "submission-blue-factor" %>
+
+  <%= f.submit %>
+<% end %>

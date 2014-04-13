@@ -1,4 +1,7 @@
 Skynet::Application.routes.draw do
+  resources :submissions, only: [:show, :new, :create]
+
+
   get "playgrounds/index"
 
   root "playgrounds#index"
