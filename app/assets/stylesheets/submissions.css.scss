@@ -5,7 +5,7 @@
 @import "colors";
 
 body {
-  background-color: rgb(60, 71, 80);
+  background-color: $background-color;
   color: $text-color;
   font-family: "Open Sans", sans-serif;
 }
@@ -32,6 +32,17 @@ h1 {
   padding-top: 12px;
 }
 
+.btn-default {
+  color: $text-color;
+  background-color: $background-color;
+  border: 2px solid $text-color;
+}
+
+.btn-lower-right {
+  width: 103px;
+  height: 44px;
+}
+
 .submit-row {
   h2 {
     margin: 0px;
@@ -49,6 +60,7 @@ h1 {
 
   .step {
     margin-top: 12px;
+    margin-bottom: 12px;
   }
 }
 
