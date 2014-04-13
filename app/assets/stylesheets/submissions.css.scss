@@ -18,7 +18,7 @@ h1 {
   h1 {
     margin: 10px;
     padding: 0px;
-    font-weight: 600;
+    font-weight: 300;
 
     a {
       text-decoration: none;
@@ -188,7 +188,8 @@ h1 {
     margin: 14px;
     padding: 0px;
     font-variant: small-caps;
-    font-weight: 600;
+    font-weight: 400;
+    letter-spacing: 3;
   }
 }
 
@@ -214,8 +215,8 @@ h1 {
       text-transform: uppercase;
       //font-variant: small-caps;
       font-weight: 300;
-      padding: 12px 0px 12px 0px;
-      margin: 12px 0px 12px 0px;
+      padding: 12px 0px 0px 0px;
+      margin: 12px 0px 0px 0px;
     }
   }
 }
