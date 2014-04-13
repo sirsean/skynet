@@ -10,13 +10,13 @@ ReadySubmissionNew = function() {
     showPicture(file);
   });
 
-  updateFooter("empty");
+  updateDisplay("empty");
   markPaletteColorChecked();
   $(".palette-color").on("click", function(e) {
     var blueFactor = $(e.target).attr("data-blue-factor");
     $("#submission-blue-factor").attr("value", blueFactor);
     markPaletteColorChecked($(e.target));
-    updateFooter("ready");
+    updateDisplay("ready");
   });
 
   if (navigator.geolocation) {
@@ -31,7 +31,8 @@ ReadySubmissionShow = function() {
     return;
   }
   console.log("show");
-  var color = knownFactors[$("#submission").attr("data-blue-factor")];
+  var factor = $("#submission").attr("data-blue-factor");
+  var color = knownFactors[factor];
   console.log(color);
   console.log(rgbCss(color));
   $(".show-submission").css("background-color", rgbCss(color));
@@ -39,6 +40,12 @@ ReadySubmissionShow = function() {
   $("#factor-row .blue-factor-box").each(function(index, box) {
     $(box).css("background-color", rgbCss(knownFactors[index]));
   });
+
+  var photoSummary = factorSummaries[factor];
+  console.log(photoSummary);
+  $(".photo-summary .photo-summary-left").text(photoSummary.left);
+  $(".photo-summary .photo-summary-middle").text(photoSummary.middle);
+  $(".photo-summary .photo-summary-right").text(photoSummary.right);
 };
 $(document).ready(ReadySubmissionShow);
 $(document).on("page:load", ReadySubmissionShow);
@@ -50,6 +57,15 @@ var knownFactors = [
   [126, 158, 206],
   [149, 177, 216],
   [177, 196, 225]
+];
+
+var factorSummaries = [
+  { left: "left 0", middle: "middle 0", right: "right 0" },
+  { left: "left 1", middle: "middle 1", right: "right 1" },
+  { left: "left 2", middle: "middle 2", right: "right 2" },
+  { left: "left 3", middle: "middle 3", right: "right 3" },
+  { left: "left 4", middle: "middle 4", right: "right 4" },
+  { left: "left 5", middle: "middle 5", right: "right 5" }
 ];
 
 // weighted distance between two RGB colors
@@ -105,11 +121,11 @@ function showPicture(file) {
       div.find(".distance").text(Math.floor(closest[i].distance));
       div.attr("data-blue-factor", closest[i].knownFactorIndex);
     }
-    updateFooter("photo");
+    updateDisplay("photo");
   });
 }
 
-function updateFooter(state) {
+function updateDisplay(state) {
   // which button to show
   $("#submit-container").hide();
   $("#camera-container").hide();
@@ -129,6 +145,15 @@ function updateFooter(state) {
     $("#step-2").show();
   } else if (state == "ready") {
     $("#step-3").show();
+  }
+
+  // the main part of the screen
+  $("#initial-container").hide();
+  $("#picture-container").hide();
+  if (state != "empty") {
+    $("#picture-container").show();
+  } else {
+    $("#initial-container").show();
   }
 }
 

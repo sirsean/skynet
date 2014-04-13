@@ -2,21 +2,26 @@
 
 <%= form_for :submission, url: submissions_path do |f| %>
 
-  <div id="picture-container">
-    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="height: 300px;" class="img-responsive center-block"></img>
+  <div id="initial-container">
+    <p>This is the sky color app</p>
+    <p>There are many like it, but this one is ours</p>
   </div>
-  <div class="row no-margin">
-    <div id="palette-color-0" class="palette-color col-xs-4 text-center" data-palette-index="0">
-      <h2 class="palette-check glyphicon glyphicon-ok"></h2>
-      <!--<div class="distance"></div>-->
-    </div>
-    <div id="palette-color-1" class="palette-color col-xs-4 text-center" data-palette-index="1">
-      <h2 class="palette-check glyphicon glyphicon-ok"></h2>
-      <!--<div class="distance"></div>-->
-    </div>
-    <div id="palette-color-2" class="palette-color col-xs-4 text-center" data-palette-index="2">
-      <h2 class="palette-check glyphicon glyphicon-ok"></h2>
-      <!--<div class="distance"></div>-->
+  <div id="picture-container">
+    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="img-responsive center-block"></img>
+
+    <div class="row no-margin">
+      <div id="palette-color-0" class="palette-color col-xs-4 text-center" data-palette-index="0">
+        <h2 class="palette-check glyphicon glyphicon-ok"></h2>
+        <!--<div class="distance"></div>-->
+      </div>
+      <div id="palette-color-1" class="palette-color col-xs-4 text-center" data-palette-index="1">
+        <h2 class="palette-check glyphicon glyphicon-ok"></h2>
+        <!--<div class="distance"></div>-->
+      </div>
+      <div id="palette-color-2" class="palette-color col-xs-4 text-center" data-palette-index="2">
+        <h2 class="palette-check glyphicon glyphicon-ok"></h2>
+        <!--<div class="distance"></div>-->
+      </div>
     </div>
   </div>
 

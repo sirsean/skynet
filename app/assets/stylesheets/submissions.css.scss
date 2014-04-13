@@ -4,9 +4,22 @@
 
 @import "colors";
 
+#picture-container {
+  height: 370px;
+}
+
+#initial-container {
+  height: 370px;
+}
+
+#show-picture {
+  height: 300px;
+}
+
 .palette-color {
   height: 70px;
   border: 1px solid $text-color;
+  border-bottom: 0px;
 }
 
 .blue-factor-box {
@@ -40,4 +53,17 @@
 
 .show-submission {
   padding: 20px;
+}
+
+.photo-summary {
+  div {
+    border: 1px solid $text-color;
+    font-weight: bold;
+    text-align: center;
+
+    p {
+      padding: 12px 0px 12px 0px;
+      margin: 12px 0px 12px 0px;
+    }
+  }
 }
