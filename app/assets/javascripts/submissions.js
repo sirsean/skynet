@@ -10,9 +10,11 @@ ReadySubmissionNew = function() {
     showPicture(file);
   });
 
+  markPaletteColorChecked();
   $(".palette-color").on("click", function(e) {
     var blueFactor = $(e.target).attr("data-blue-factor");
     $("#submission-blue-factor").attr("value", blueFactor);
+    markPaletteColorChecked($(e.target));
   });
 
   if (navigator.geolocation) {
@@ -98,6 +100,13 @@ function showPicture(file) {
       div.attr("data-blue-factor", closest[i].knownFactorIndex);
     }
   });
+}
+
+function markPaletteColorChecked(paletteColor) {
+  $(".palette-color .palette-check").hide();
+  if (paletteColor != null) {
+    paletteColor.find(".palette-check").show();
+  }
 }
 
 function distanceComparator(a, b) {

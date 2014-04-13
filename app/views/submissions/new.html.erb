@@ -2,7 +2,7 @@
 
 <%= form_for :submission, url: submissions_path do |f| %>
 
-  <div class="row">
+  <div class="row no-margin">
     <div class="col-xs-offset-4 col-xs-4">
       <span class="btn btn-default btn-file center-block">
         <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
@@ -13,18 +13,18 @@
   <div id="picture-container">
     <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="height: 300px;" class="img-responsive center-block"></img>
   </div>
-  <div class="row">
-    <div id="palette-color-0" class="palette-color col-xs-4 text-center">
-      <h1 class="glyphicon glyphicon-ok"></h1>
-      <div class="distance center-block"></div>
+  <div class="row no-margin">
+    <div id="palette-color-0" class="palette-color col-xs-4 text-center" data-palette-index="0">
+      <h2 class="palette-check glyphicon glyphicon-ok"></h2>
+      <div class="distance"></div>
     </div>
-    <div id="palette-color-1" class="palette-color col-xs-4 text-center">
-      <h2 class="glyphicon glyphicon-ok"></h2>
-      <div class="distance center-block"></div>
+    <div id="palette-color-1" class="palette-color col-xs-4 text-center" data-palette-index="1">
+      <h2 class="palette-check glyphicon glyphicon-ok"></h2>
+      <div class="distance"></div>
     </div>
-    <div id="palette-color-2" class="palette-color col-xs-4 text-center">
-      <h3 class="glyphicon glyphicon-ok"></h3>
-      <div class="distance center-block"></div>
+    <div id="palette-color-2" class="palette-color col-xs-4 text-center" data-palette-index="2">
+      <h2 class="palette-check glyphicon glyphicon-ok"></h2>
+      <div class="distance"></div>
     </div>
   </div>
 
