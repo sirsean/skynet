@@ -1,4 +1,4 @@
-$(function() {
+ReadySubmissionNew = function() {
   if (!$("#submissions-new").exists()) {
     return;
   }
@@ -17,9 +17,11 @@ $(function() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
   }
-});
+};
+$(document).ready(ReadySubmissionNew);
+$(document).on("page:load", ReadySubmissionNew);
 
-$(function() {
+ReadySubmissionShow = function() {
   if (!$("#submissions-show").exists()) {
     return;
   }
@@ -28,7 +30,9 @@ $(function() {
   console.log(color);
   console.log(rgbCss(color));
   $(document.body).css("background-color", rgbCss(color));
-});
+};
+$(document).ready(ReadySubmissionShow);
+$(document).on("page:load", ReadySubmissionShow);
 
 var knownFactors = [
   [53, 113, 181],

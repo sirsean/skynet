@@ -1,10 +1,11 @@
 Skynet::Application.routes.draw do
-  resources :submissions, only: [:show, :new, :create]
+  get "welcome/index"
 
+  resources :submissions, only: [:show, :new, :create]
 
   get "playgrounds/index"
 
-  root "playgrounds#index"
+  root "welcome#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
