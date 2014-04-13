@@ -2,7 +2,11 @@ ReadySubmissionNew = function() {
   if (!$("#submissions-new").exists()) {
     return;
   }
-  console.log("new");
+
+  $("#submission-form").on("submit", function() {
+    $("#submit-button").prop("disabled", true);
+  });
+
   $("#take-picture").on("change", function() {
     var file = this.files[0];
     console.log(file);

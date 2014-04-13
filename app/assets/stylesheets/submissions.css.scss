@@ -7,12 +7,18 @@
 body {
   background-color: rgb(60, 71, 80);
   color: $text-color;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  letter-spacing: 2px;
 }
 
 .title {
   h1 {
     margin: 10px;
     padding: 0px;
+    font-weight: 600;
 
     a {
       text-decoration: none;
@@ -41,10 +47,8 @@ body {
     margin-left: 16px;
   }
 
-  .valign {
-    display: inline-block !important;
-    vertical-align: middle !important;
-    float: none !important;
+  .step {
+    margin-top: 12px;
   }
 }
 
