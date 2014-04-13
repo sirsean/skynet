@@ -110,6 +110,9 @@ function markPaletteColorChecked(paletteColor) {
   $(".palette-color .palette-check").hide();
   if (paletteColor != null) {
     paletteColor.find(".palette-check").show();
+    $("#submit-button").prop("disabled", false);
+  } else {
+    $("#submit-button").prop("disabled", true);
   }
 }
 
