@@ -1,3 +1,20 @@
+var knownFactors = [
+  [53, 113, 181],
+  [90, 136, 189],
+  [104, 144, 199],
+  [126, 158, 206],
+  [149, 177, 216],
+  [177, 196, 225]
+];
+
+// weighted distance between two RGB colors
+function calculateColorDistance(a, b) {
+  var redDistance = Math.pow((a[0] - b[0]) * 0.3, 2);
+  var greenDistance = Math.pow((a[1] - b[1]) * 0.59, 2);
+  var blueDistance = Math.pow((a[2] - b[2]) * 0.11, 2);
+  return redDistance + greenDistance + blueDistance;
+}
+
 function showPicture(file) {
   var show = $("#show-picture");
 
@@ -17,14 +34,25 @@ function showPicture(file) {
 
   setTimeout(function() {
     var colorThief = new ColorThief();
-    var d = colorThief.getColor($("#show-picture")[0]);
-    console.log(d);
-    $("#dominant-color").css("background-color", "rgb(" + d.join(",") + ")");
 
+    var closest = [];
     var palette = colorThief.getPalette($("#show-picture")[0]);
-    console.log(palette, 6);
     for (var i=0; i < palette.length; i++) {
-      $("#palette-color-" + i).css("background-color", "rgb(" + palette[i].join(",") + ")");
+      var distances = [];
+      for (var j=0; j < knownFactors.length; j++) {
+        distances[j] = {
+          distance: calculateColorDistance(knownFactors[j], palette[i]),
+          known: knownFactors[j],
+          color: palette[i]
+        };
+      }
+      distances.sort(function(a, b) {
+        return a.distance - b.distance;
+      });
+      closest.push(distances[0]);
+    }
+    for (var i=0; i < 3; i++) {
+      $("#palette-color-" + i).css("background-color", "rgb(" + closest[i].known.join(",") + ")");
     }
   }, 100);
 }
