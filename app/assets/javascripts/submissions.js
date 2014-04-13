@@ -61,12 +61,12 @@ var knownFactors = [
 ];
 
 var factorSummaries = [
-  { hero: "Beautiful Sky", left: "Perfect", middle: "Great", right: "Very Low" },
-  { hero: "hero 1", left: "Deep Blue", middle: "Unusually Clear", right: "Low" },
-  { hero: "hero 2", left: "Blue", middle: "Clear", right: "Low Medium" },
-  { hero: "hero 3", left: "Light Blue", middle: "Somewhat Hazy", right: "Medium" },
-  { hero: "hero 4", left: "Pale Blue", middle: "Very Hazy", right: "High Medium" },
-  { hero: "hero 5", left: "Milky", middle: "Extremely Hazy", right: "High" }
+  { hero: "Flawless", left: "Perfect", middle: "Perfect", right: "None" },
+  { hero: "Beautiful", left: "Lovely", middle: "Great", right: "Very Low" },
+  { hero: "Clear Blue", left: "Good", middle: "Fair", right: "Low" },
+  { hero: "Pale Sky", left: "Pale", middle: "Fair", right: "Moderate" },
+  { hero: "Hazy Sky", left: "Pale", middle: "Hazy", right: "High" },
+  { hero: "Milky Sky", left: "Poor", middle: "Poor", right: "Very High" }
 ];
 
 // weighted distance between two RGB colors
