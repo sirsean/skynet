@@ -32,6 +32,20 @@ body {
     padding: 0px;
     font-size: 20pt;
   }
+
+  .right-margin {
+    margin-right: 16px;
+  }
+
+  .left-margin {
+    margin-left: 16px;
+  }
+
+  .valign {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    float: none !important;
+  }
 }
 
 .blue-factor-0 {

@@ -25,14 +25,25 @@
   <%= f.hidden_field :blue_factor, id: "submission-blue-factor" %>
 
   <div class="row no-margin submit-row footer">
-    <div class="col-xs-offset-2 col-xs-4">
+    <div class="pull-left left-margin">
+      <div id="step-1" class="step">
+        Take a photo of the sky.
+      </div>
+      <div id="step-2" class="step">
+        Tap the best sky color match.
+      </div>
+      <div id="step-3" class="step">
+        Click save to see results.
+      </div>
+    </div>
+    <div id="camera-container" class="pull-right right-margin">
       <span class="btn btn-default btn-file center-block">
         <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
         <h2 class="glyphicon glyphicon-camera"></h2>
       </span>
     </div>
-    <div class="col-xs-offset-2">
-      <%= f.submit id: "submit-button", class: "center-block btn btn-default btn-lg", value: "Submit" %>
+    <div id="submit-container" class="pull-right right-margin">
+      <%= f.submit id: "submit-button", class: "center-block btn btn-default btn-lg", value: "Save" %>
     </div>
   </div>
 <% end %>

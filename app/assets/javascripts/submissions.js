@@ -10,11 +10,13 @@ ReadySubmissionNew = function() {
     showPicture(file);
   });
 
+  updateFooter("empty");
   markPaletteColorChecked();
   $(".palette-color").on("click", function(e) {
     var blueFactor = $(e.target).attr("data-blue-factor");
     $("#submission-blue-factor").attr("value", blueFactor);
     markPaletteColorChecked($(e.target));
+    updateFooter("ready");
   });
 
   if (navigator.geolocation) {
@@ -103,7 +105,31 @@ function showPicture(file) {
       div.find(".distance").text(Math.floor(closest[i].distance));
       div.attr("data-blue-factor", closest[i].knownFactorIndex);
     }
+    updateFooter("photo");
   });
+}
+
+function updateFooter(state) {
+  // which button to show
+  $("#submit-container").hide();
+  $("#camera-container").hide();
+  if (state == "ready") {
+    $("#submit-container").show();
+  } else {
+    $("#camera-container").show();
+  }
+
+  // which text to show
+  $("#step-1").hide();
+  $("#step-2").hide();
+  $("#step-3").hide();
+  if (state == "empty") {
+    $("#step-1").show();
+  } else if (state == "photo") {
+    $("#step-2").show();
+  } else if (state == "ready") {
+    $("#step-3").show();
+  }
 }
 
 function markPaletteColorChecked(paletteColor) {
