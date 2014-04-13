@@ -4,26 +4,26 @@
   data-blue-factor="<%= @submission.blue_factor %>"
   ></span>
 
-<div class="container show-submission">
-  <%= image_tag @submission.photo, class: "img-responsive center-block uploaded-photo" %>
-  <div id="factor-row" class="row no-margin">
-    <div class="blue-factor-box col-xs-offset-3 col-xs-1"></div>
-    <div class="blue-factor-box col-xs-1"></div>
-    <div class="blue-factor-box col-xs-1"></div>
-    <div class="blue-factor-box col-xs-1"></div>
-    <div class="blue-factor-box col-xs-1"></div>
-    <div class="blue-factor-box col-xs-1"></div>
-  </div>
-</div>
+<div id="show-container">
 
-<div class="row no-margin photo-summary">
-  <div class="col-xs-4">
-    <p class="photo-summary-left">Blue</p>
+  <div class="show-submission">
+    <%= image_tag @submission.photo, class: "center-block uploaded-photo" %>
   </div>
-  <div class="col-xs-4">
-    <p class="photo-summary-middle">Clear</p>
+
+  <div class="text-center photo-summary-hero blue-color-<%= @submission.blue_factor %>">
+    <h2>BEAUTIFUL SKY</h2>
   </div>
-  <div class="col-xs-4">
-    <p class="photo-summary-right">Low Aerosol</p>
+
+  <div class="row no-margin photo-summary">
+    <div class="col-xs-4">
+      <p class="photo-summary-left">Blue</p>
+    </div>
+    <div class="col-xs-4">
+      <p class="photo-summary-middle">Clear</p>
+    </div>
+    <div class="col-xs-4">
+      <p class="photo-summary-right">Low Aerosol</p>
+    </div>
   </div>
+
 </div>

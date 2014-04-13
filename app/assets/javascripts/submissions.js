@@ -41,10 +41,6 @@ ReadySubmissionShow = function() {
   console.log(rgbCss(color));
   $(".show-submission").css("background-color", rgbCss(color));
 
-  $("#factor-row .blue-factor-box").each(function(index, box) {
-    $(box).css("background-color", rgbCss(knownFactors[index]));
-  });
-
   var photoSummary = factorSummaries[factor];
   console.log(photoSummary);
   $(".photo-summary .photo-summary-left").text(photoSummary.left);

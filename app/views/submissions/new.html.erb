@@ -31,29 +31,33 @@
   <%= f.hidden_field :longitude, id: "submission-longitude" %>
   <%= f.hidden_field :blue_factor, id: "submission-blue-factor" %>
 
-  <div class="row no-margin submit-row footer">
-    <div class="pull-left">
-      <div id="step-1" class="step">
-        Take a photo of the sky.
+  <div class="footer">
+    <div class="container row no-margin submit-row">
+      <div class="col-xs-offset-2 col-xs-6">
+        <div id="step-1" class="step pull-right">
+          Shoot the sky
+        </div>
+        <div id="step-2" class="step pull-right">
+          Pick the best match
+        </div>
+        <div id="step-3" class="step pull-right">
+          Send your results
+        </div>
       </div>
-      <div id="step-2" class="step">
-        Tap the best sky color match.
+      <div class="col-xs-4 text-center">
+        <div id="camera-container">
+          <span class="btn btn-default btn-file btn-lower-right">
+            <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
+            <h2 class="glyphicon glyphicon-camera"></h2>
+          </span>
+        </div>
+        <div id="submit-container">
+          <%# f.submit id: "submit-button", class: "center-block btn btn-default btn-lg btn-lower-right", value: "Save" %>
+          <button type="submit" class="btn btn-default btn-lower-right">
+            <h2 class="glyphicon glyphicon-share-alt"></h2>
+          </button>
+        </div>
       </div>
-      <div id="step-3" class="step">
-        Click save to see results.
-      </div>
-    </div>
-    <div id="camera-container" class="pull-right">
-      <span class="btn btn-default btn-file center-block btn-lower-right">
-        <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
-        <h2 class="glyphicon glyphicon-camera"></h2>
-      </span>
-    </div>
-    <div id="submit-container" class="pull-right">
-      <%# f.submit id: "submit-button", class: "center-block btn btn-default btn-lg btn-lower-right", value: "Save" %>
-      <button type="submit" class="btn btn-default btn-lower-right">
-        <h2 class="glyphicon glyphicon-share-alt"></h2>
-      </button>
     </div>
   </div>
 <% end %>
