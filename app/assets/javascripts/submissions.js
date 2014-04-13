@@ -5,6 +5,7 @@ ReadySubmissionNew = function() {
   console.log("new");
   $("#take-picture").on("change", function() {
     var file = this.files[0];
+    console.log(file);
     $("#filename").text(file.name);
     showPicture(file);
   });
@@ -68,7 +69,11 @@ function showPicture(file) {
   // For performance reasons, revoke used ObjectURLs
   URL.revokeObjectURL(imgURL);
 
-  setTimeout(function() {
+  show.on("load", function() {
+    console.log("onload");
+    console.log(this);
+    console.log(this.width);
+    console.log(this.height);
     var colorThief = new ColorThief();
 
     var closest = [];
@@ -95,7 +100,7 @@ function showPicture(file) {
       div.text(closest[i].distance);
       div.attr("data-blue-factor", closest[i].knownFactorIndex);
     }
-  }, 100);
+  });
 }
 
 function distanceComparator(a, b) {

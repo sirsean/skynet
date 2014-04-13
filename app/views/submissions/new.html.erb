@@ -5,8 +5,8 @@
 <%= form_for :submission, url: submissions_path do |f| %>
 
   <%= f.file_field :photo, id: "take-picture", accept: "image/*", capture: "camera" %>
-  <div>
-    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:100%;"></img>
+  <div id="picture-container">
+    <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="height: 300px;"></img>
   </div>
   <div id="palette-color-0" class="palette-color" style="height: 30px"></div>
   <div id="palette-color-1" class="palette-color" style="height: 30px"></div>
