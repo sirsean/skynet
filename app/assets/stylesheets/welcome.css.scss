@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "colors";
+
+body {
+  background-color: rgb(60, 71, 80);
+  color: $text-color;
+}
+
 .title {
   h1 {
     margin: 10px;
@@ -9,9 +16,14 @@
 
     a {
       text-decoration: none;
-      color: none;
+      color: $text-color;
     }
   }
+}
+
+.footer {
+  border-top: 2px solid $text-color;
+  padding-top: 12px;
 }
 
 .submit-row {
