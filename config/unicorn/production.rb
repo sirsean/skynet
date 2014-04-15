@@ -4,3 +4,5 @@ pid "/var/skynet/unicorn.pid"
 listen "/var/skynet/unicorn.sock"
 stderr_path "/var/skynet/unicorn.log"
 stdout_path "/var/skynet/unicorn.log"
+worker_processes 2
+timeout 30
