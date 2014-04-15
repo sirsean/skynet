@@ -10,6 +10,8 @@ role :db,  %w{skynet@skynet.feedhammer.com}
 
 set :rails_env, "production"
 
+set :deploy_to, '/home/skynet/skynet'
+
 #after 'deploy:update_code' do
 #  run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
 #end
