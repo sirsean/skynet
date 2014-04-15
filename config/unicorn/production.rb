@@ -1,3 +1,5 @@
+root = "/home/skynet/skynet/current"
+working_directory root
 pid "/var/skynet/unicorn.pid"
 listen "/var/skynet/unicorn.sock"
 worker_processes 2
