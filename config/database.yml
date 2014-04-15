@@ -51,6 +51,14 @@ test:
   #username: skynet
   #password:
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: skynet_staging
+  pool: 5
+  #username: skynet
+  #password:
+
 production:
   adapter: postgresql
   encoding: unicode
