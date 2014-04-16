@@ -6,7 +6,3 @@ stderr_path "/var/skynet_staging/unicorn.log"
 stdout_path "/var/skynet_staging/unicorn.log"
 worker_processes 2
 timeout 30
-
-before_exec do |_|
-  ENV["TESTME4"] = 1
-end
