@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
         return registered_user
       else
         Rails.logger.info auth.inspect
+        Rails.logger.info auth.extra.inspect
+        Rails.logger.info auth.extra.raw_info.inspect
+        Rails.logger.info auth.extra.raw_info.name
         user = User.create(name:auth.extra.raw_info.name,
                             provider:auth.provider,
                             uid:auth.uid,
