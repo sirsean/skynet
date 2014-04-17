@@ -4,9 +4,9 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{skynet@skynet.feedhammer.com}
-role :web, %w{skynet@skynet.feedhammer.com}
-role :db,  %w{skynet@skynet.feedhammer.com}
+role :app, %w{skynet@skynet.photos}
+role :web, %w{skynet@skynet.photos}
+role :db,  %w{skynet@skynet.photos}
 
 set :rails_env, "production"
 
@@ -22,7 +22,7 @@ set :deploy_to, '/home/skynet/skynet'
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'skynet.feedhammer.com', user: 'skynet', roles: %w{web app}, primary: true
+server 'skynet.photos', user: 'skynet', roles: %w{web app}, primary: true
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
