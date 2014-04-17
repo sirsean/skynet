@@ -1,5 +1,7 @@
 # I used this page to help set this up: http://sreeharikmarar.blogspot.com/2013/01/omniauth-devise-authentication-using.html
 class User < ActiveRecord::Base
+  has_many :submissions
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

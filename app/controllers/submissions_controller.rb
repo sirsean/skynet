@@ -8,11 +8,9 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    logger.info params.inspect
-    logger.info params[:submission].inspect
-    logger.info submission_params.inspect
-
-    @submission = Submission.new(submission_params)
+    @submission = Submission.new(submission_params) do |s|
+      s.user = current_user
+    end
     if @submission.save
       redirect_to submission_path(@submission)
     else
