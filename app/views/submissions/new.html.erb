@@ -7,8 +7,12 @@
     <p>By taking a picture of the sky and matching it against known shades of blue, you can find out about the air quality where you are.</p>
     <p>And, along with others nearby, can help track the air quality in your area over time.</p>
     <p>Try to get a good picture of the sky with nothing else in it. If that's impossible, just do your best.</p>
+    <% if signed_in? %>
+    <p><%= link_to "Logout", destroy_user_session_path %></p>
+    <% else %>
     <p><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></p>
     <p><%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %></p>
+    <% end %>
   </div>
   <div id="picture-container">
     <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="img-responsive center-block uploaded-photo"></img>
