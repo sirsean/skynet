@@ -1,6 +1,6 @@
 <span id="submissions-new"></span>
 
-<%= form_for :submission, id: "submission-form", url: submissions_path do |f| %>
+<%= form_for :submission, url: submissions_path, html: { id: "submission-form" } do |f| %>
 
   <div id="initial-container">
     <p>Classifying the sky’s color is one way to indicate the level of aerosol loading in the atmosphere.</p>
@@ -58,8 +58,7 @@
           </span>
         </div>
         <div id="submit-container">
-          <%# f.submit id: "submit-button", class: "center-block btn btn-default btn-lg btn-lower-right", value: "Save" %>
-          <button type="submit" class="btn btn-default btn-lower-right">
+          <button id="submit-button" type="submit" class="btn btn-default btn-lower-right">
             <h2 class="glyphicon glyphicon-share-alt"></h2>
           </button>
         </div>

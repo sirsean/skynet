@@ -4,6 +4,9 @@ ReadySubmissionNew = function() {
   }
 
   $("#submission-form").on("submit", function() {
+    $("#submit-button h2").removeClass("glyphicon-share-alt");
+    $("#submit-button h2").addClass("glyphicon-refresh");
+    $("#submit-button h2").addClass("spin");
     $("#submit-button").prop("disabled", true);
   });
 
@@ -86,9 +89,8 @@ function showPicture(file) {
   // Create ObjectURL
   var imgURL = URL.createObjectURL(file);
   console.log(imgURL);
-   
+
   // Set img src to ObjectURL
-  //show.src = imgURL;
   show.attr("src", imgURL);
 
   // For performance reasons, revoke used ObjectURLs
