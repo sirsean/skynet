@@ -1,13 +1,24 @@
 @import "colors";
 
+/*
+  Typography
+*/
+
 body {
   background-color: $background-color;
   color: $text-color;
   font-family: "Open Sans", sans-serif;
+  font-weight: 300;
 }
 
 h1 {
   letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 300;
+  text-align: center;
 }
 
 .title {
@@ -194,6 +205,7 @@ h1 {
 
 .photo-summary-whole {
   border-top: 1px solid $text-color;
+  padding: 12px 0;
 }
 
 .photo-summary {
@@ -203,16 +215,15 @@ h1 {
 
     h4 {
       font-size: 16px;
-      font-variant: small-caps;
+      text-transform: uppercase;
       font-weight: 300;
     }
 
     p {
       font-size: 18px;
-      text-transform: uppercase;
       font-weight: 300;
-      padding: 12px 0px 0px 0px;
-      margin: 12px 0px 0px 0px;
+      margin-bottom: 0;
+      text-transform: uppercase;
     }
   }
 

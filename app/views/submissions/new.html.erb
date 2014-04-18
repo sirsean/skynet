@@ -3,16 +3,37 @@
 <%= form_for :submission, url: submissions_path, html: { id: "submission-form" } do |f| %>
 
   <div id="initial-container">
-    <p>Classifying the sky’s color is one way to indicate the level of aerosol loading in the atmosphere.</p>
-    <p>By taking a picture of the sky and matching it against known shades of blue, you can find out about the air quality where you are.</p>
-    <p>And, along with others nearby, can help track the air quality in your area over time.</p>
-    <p>Try to get a good picture of the sky with nothing else in it. If that's impossible, just do your best.</p>
+    <h2>Contribute to air quality analysis using only your camera.</h2>
     <% if signed_in? %>
     <p><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
     <% else %>
     <p><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></p>
     <p><%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %></p>
     <% end %>
+    <div class="photo-summary-whole" >
+      <div class="row no-margin photo-summary">
+        <div class="col-xs-4 border-right">
+          <p class="photo-summary-left">1</p>
+        </div>
+        <div class="col-xs-4 border-right">
+          <p class="photo-summary-middle">2</p>
+        </div>
+        <div class="col-xs-4">
+          <p class="photo-summary-right">3</p>
+        </div>
+      </div>
+      <div class="row no-margin photo-summary">
+        <div class="col-xs-4 border-right">
+          <h4>Take photo of the sky</h4>
+        </div>
+        <div class="col-xs-4 border-right">
+          <h4>Pick the best color match</h4>
+        </div>
+        <div class="col-xs-4">
+          <h4>View aerosol analysis</h4>
+        </div>
+      </div>
+    </div>
   </div>
   <div id="picture-container">
     <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="img-responsive center-block uploaded-photo"></img>
