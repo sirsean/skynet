@@ -1,8 +1,13 @@
-<% @submissions.each do |submission| %>
-  <div class="dashboard-photo blue-factor-<%= submission.blue_factor %>">
-    <a href="<%= submission_path(submission) %>">
-    <%= image_tag submission.photo, class: "img-rounded", style: "height: 200px;" %>
-    </a>
+<div class="container">
+  <%= will_paginate @submissions %>
+  <div class="dashboard-photos clearfix">
+    <% @submissions.each do |submission| %>
+      <div class="dashboard-photo blue-factor-<%= submission.blue_factor %>">
+        <a href="<%= submission_path(submission) %>">
+        <%= image_tag submission.photo, class: "img-rounded", style: "height: 200px;" %>
+        </a>
+      </div>
+    <% end %>
   </div>
-<% end %>
-<div class="clearfix"></div>
+  <%= will_paginate @submissions %>
+</div>
