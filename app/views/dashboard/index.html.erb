@@ -6,6 +6,9 @@
         <a href="<%= submission_path(submission) %>">
         <%= image_tag submission.photo, class: "img-rounded", style: "height: 200px;" %>
         </a>
+        <% if submission.can_delete?(current_user) %>
+        <p class="text-center"><%= link_to "Delete", submission_path(submission), data: { confirm: "Are you sure?" }, class: "link-delete-submission", method: :delete, remote: true %></p>
+        <% end %>
       </div>
     <% end %>
   </div>

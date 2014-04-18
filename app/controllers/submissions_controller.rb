@@ -20,6 +20,12 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def destroy
+    submission = Submission.find(params[:id])
+    submission.destroy if submission.can_delete?(current_user)
+    redirect_back_or_default
+  end
+
   private
 
   def submission_params
