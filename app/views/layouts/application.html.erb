@@ -10,11 +10,39 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-no-turbolink>
 
-<div class="title text-center">
-  <h1><%= link_to "SKYNET", root_path %></h1>
+<div>
+
+<div class="title row no-margin">
+  <div class="col-xs-2 text-center">
+    <a href="#left-menu"><h1 class="glyphicon glyphicon-th-list"></h1></a>
+  </div>
+  <div class="col-xs-8 text-center">
+    <h1><%= link_to "SKYNET", root_path %></h1>
+  </div>
 </div>
+
+<nav id="left-menu">
+  <ul>
+    <% if signed_in? %>
+    <li class="Label">Welcome, <%= current_user.name %><li>
+    <% end %>
+
+    <li><%= link_to "Home", root_path %></li>
+
+    <% if !signed_in? %>
+    <li class="Label">Login with:</li>
+    <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
+    <li><%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %></li>
+    <% end %>
+
+    <% if signed_in? %>
+    <li><%= link_to "Dashboard", dashboard_index_path %></li>
+    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    <% end %>
+  </ul>
+</nav>
 
 <div class="row no-margin header-row">
   <div class="col-xs-2 header-bar blue-factor-0"></div>
@@ -26,6 +54,8 @@
 </div>
 
 <%= yield %>
+
+</div>
 
 </body>
 </html>
