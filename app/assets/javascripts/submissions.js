@@ -89,56 +89,15 @@ function showPicture(file) {
   console.log("showPicture");
   var show = $("#show-picture");
 
-  var img = document.createElement("img");
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    console.log("reader onload");
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-
-  img.onload = function(e) {
-    console.log("img onload");
-
-    console.log(img.width);
-    console.log(img.height);
-
-    var MAX_WIDTH = 800;
-    var MAX_HEIGHT = 600;
-    var width = img.width;
-    var height = img.height;
-
-    if (width > height) {
-      if (width > MAX_WIDTH) {
-        height *= MAX_WIDTH / width;
-        width = MAX_WIDTH;
-      }
-    } else {
-      if (height > MAX_HEIGHT) {
-        width *= MAX_HEIGHT / height;
-        height = MAX_HEIGHT;
-      }
-    }
-
-    var canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, width, height);
-    console.log(canvas);
-
-    var data = canvas.toDataURL("image/jpeg");
-
-    $("#upload-image-data").attr("value", data);
-    show.attr("src", data);
-
-    URL.revokeObjectURL(data);
-  }
-
+  var mpImg = new MegaPixImage(file);
+  mpImg.render(show[0], { maxWidth: 800, maxHeight: 800 });
+    
   updateMainWindow("photo");
   show.on("load", function() {
     console.log("onload");
     var img = $("#show-picture")[0];
+    $("#upload-image-data").attr("value", img.src);
+
     var colorThief = new ColorThief();
 
     var closest = [];
