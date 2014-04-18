@@ -3,6 +3,10 @@ ReadySubmissionNew = function() {
     return;
   }
 
+  $("#submit-button").on("click", function() {
+    $("#submission-form").submit();
+  });
+
   $("#submission-form").on("submit", function() {
     $("#submit-button h2").removeClass("glyphicon-share-alt");
     $("#submit-button h2").addClass("glyphicon-refresh");
@@ -11,6 +15,7 @@ ReadySubmissionNew = function() {
   });
 
   $("#take-picture").on("change", function() {
+    console.log("take picture change");
     var file = this.files[0];
     console.log(file);
     $("#filename").text(file.name);
@@ -81,28 +86,63 @@ function calculateColorDistance(a, b) {
 }
 
 function showPicture(file) {
+  console.log("showPicture");
   var show = $("#show-picture");
 
-  // Get window.URL object
-  var URL = window.URL || window.webkitURL;
-   
-  // Create ObjectURL
-  var imgURL = URL.createObjectURL(file);
-  console.log(imgURL);
+  var img = document.createElement("img");
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    console.log("reader onload");
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
 
-  // Set img src to ObjectURL
-  show.attr("src", imgURL);
+  img.onload = function(e) {
+    console.log("img onload");
 
-  // For performance reasons, revoke used ObjectURLs
-  URL.revokeObjectURL(imgURL);
+    console.log(img.width);
+    console.log(img.height);
+
+    var MAX_WIDTH = 800;
+    var MAX_HEIGHT = 600;
+    var width = img.width;
+    var height = img.height;
+
+    if (width > height) {
+      if (width > MAX_WIDTH) {
+        height *= MAX_WIDTH / width;
+        width = MAX_WIDTH;
+      }
+    } else {
+      if (height > MAX_HEIGHT) {
+        width *= MAX_HEIGHT / height;
+        height = MAX_HEIGHT;
+      }
+    }
+
+    var canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, width, height);
+    console.log(canvas);
+
+    var data = canvas.toDataURL("image/jpeg");
+
+    $("#upload-image-data").attr("value", data);
+    show.attr("src", data);
+
+    URL.revokeObjectURL(data);
+  }
 
   updateMainWindow("photo");
   show.on("load", function() {
     console.log("onload");
+    var img = $("#show-picture")[0];
     var colorThief = new ColorThief();
 
     var closest = [];
-    var palette = colorThief.getPalette($("#show-picture")[0]);
+    var palette = colorThief.getPalette(img);
     for (var i=0; i < palette.length; i++) {
       var distances = [];
       for (var j=0; j < knownFactors.length; j++) {
@@ -127,6 +167,15 @@ function showPicture(file) {
     }
     updateDisplay("photo");
   });
+}
+
+function dataURItoBlob(dataURI) {
+    var binary = atob(dataURI.split(',')[1]);
+    var array = [];
+    for(var i = 0; i < binary.length; i++) {
+        array.push(binary.charCodeAt(i));
+    }
+    return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
 }
 
 // the state can be:
