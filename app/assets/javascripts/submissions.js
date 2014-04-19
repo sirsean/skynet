@@ -3,6 +3,10 @@ ReadySubmissionNew = function() {
     return;
   }
 
+  $("#submit-button").on("click", function() {
+    $("#submission-form").submit();
+  });
+
   $("#submission-form").on("submit", function() {
     $("#submit-button h2").removeClass("glyphicon-share-alt");
     $("#submit-button h2").addClass("glyphicon-refresh");
@@ -11,6 +15,7 @@ ReadySubmissionNew = function() {
   });
 
   $("#take-picture").on("change", function() {
+    console.log("take picture change");
     var file = this.files[0];
     console.log(file);
     $("#filename").text(file.name);
@@ -39,12 +44,12 @@ ReadySubmissionShow = function() {
   }
   console.log("show");
   var factor = $("#submission").attr("data-blue-factor");
-  var color = knownFactors[factor];
+  var color = Factors.known[factor];
   console.log(color);
-  console.log(rgbCss(color));
-  $(".show-submission").css("background-color", rgbCss(color));
+  console.log(Color.rgbToCss(color));
+  $(".show-submission").css("background-color", Color.rgbToCss(color));
 
-  var photoSummary = factorSummaries[factor];
+  var photoSummary = Factors.knownSummaries[factor];
   console.log(photoSummary);
   $(".photo-summary-hero h2").text(photoSummary.hero);
   $(".photo-summary .photo-summary-left").text(photoSummary.left);
@@ -54,76 +59,28 @@ ReadySubmissionShow = function() {
 $(document).ready(ReadySubmissionShow);
 $(document).on("page:load", ReadySubmissionShow);
 
-var knownFactors = [
-  [53, 113, 181],
-  [90, 136, 189],
-  [104, 144, 199],
-  [126, 158, 206],
-  [149, 177, 216],
-  [177, 196, 225]
-];
-
-var factorSummaries = [
-  { hero: "Flawless", left: "Perfect", middle: "Perfect", right: "None" },
-  { hero: "Beautiful", left: "Lovely", middle: "Great", right: "Very Low" },
-  { hero: "Clear Blue", left: "Good", middle: "Fair", right: "Low" },
-  { hero: "Pale Sky", left: "Pale", middle: "Fair", right: "Moderate" },
-  { hero: "Hazy Sky", left: "Pale", middle: "Hazy", right: "High" },
-  { hero: "Milky Sky", left: "Poor", middle: "Poor", right: "Very High" }
-];
-
-// weighted distance between two RGB colors
-function calculateColorDistance(a, b) {
-  var redDistance = Math.pow((a[0] - b[0]) * 0.3, 2);
-  var greenDistance = Math.pow((a[1] - b[1]) * 0.59, 2);
-  var blueDistance = Math.pow((a[2] - b[2]) * 0.11, 2);
-  return redDistance + greenDistance + blueDistance;
-}
-
 function showPicture(file) {
+  console.log("showPicture");
   var show = $("#show-picture");
 
-  // Get window.URL object
-  var URL = window.URL || window.webkitURL;
-   
-  // Create ObjectURL
-  var imgURL = URL.createObjectURL(file);
-  console.log(imgURL);
-
-  // Set img src to ObjectURL
-  show.attr("src", imgURL);
-
-  // For performance reasons, revoke used ObjectURLs
-  URL.revokeObjectURL(imgURL);
-
+  var mpImg = new MegaPixImage(file);
+  mpImg.render(show[0], { maxWidth: 800, maxHeight: 800 });
+    
   updateMainWindow("photo");
   show.on("load", function() {
     console.log("onload");
-    var colorThief = new ColorThief();
+    var img = $("#show-picture")[0];
+    $("#upload-image-data").attr("value", img.src);
 
-    var closest = [];
-    var palette = colorThief.getPalette($("#show-picture")[0]);
-    for (var i=0; i < palette.length; i++) {
-      var distances = [];
-      for (var j=0; j < knownFactors.length; j++) {
-        distances[j] = {
-          distance: calculateColorDistance(knownFactors[j], palette[i]),
-          known: knownFactors[j],
-          knownFactorIndex: j,
-          color: palette[i]
-        };
-      }
-      distances.sort(distanceComparator);
-      closest.push(distances[0]);
-    }
-    closest.sort(distanceComparator);
+    var closest = Color.closestTo(img, Factors.known);
+
     console.log("closest");
     for (var i=0; i < 3; i++) {
       var div = $("#palette-color-" + i);
       console.log(closest[i]);
-      div.css("background-color", rgbCss(closest[i].known));
+      div.css("background-color", Color.rgbToCss(closest[i].factor));
       div.find(".distance").text(Math.floor(closest[i].distance));
-      div.attr("data-blue-factor", closest[i].knownFactorIndex);
+      div.attr("data-blue-factor", closest[i].factorIndex);
     }
     updateDisplay("photo");
   });
@@ -177,14 +134,6 @@ function markPaletteColorChecked(paletteColor) {
   } else {
     $("#submit-button").prop("disabled", true);
   }
-}
-
-function distanceComparator(a, b) {
-  return a.distance - b.distance;
-}
-
-function rgbCss(rgb) {
-  return "rgb(" + rgb.join(",") + ")";
 }
 
 function geoSuccess(position) {

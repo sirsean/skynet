@@ -1,0 +1,15 @@
+<div class="container">
+  <% if submissions.empty? %>
+    <div class="text-center nearby-empty">
+      <p>No photos have been submitted near you. Submit one!</p>
+    </div>
+  <% else %>
+    <% submissions.each do |submission| %>
+      <div class="personal-photo blue-factor-<%= submission.blue_factor %> text-center">
+        <a href="<%= submission_path(submission) %>">
+        <%= image_tag submission.photo, class: "img-responsive" %>
+        </a>
+      </div>
+    <% end %>
+  <% end %>
+</div>

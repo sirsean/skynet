@@ -32,6 +32,16 @@ h2 {
       color: $text-color;
     }
   }
+
+  a {
+    text-decoration: none;
+    color: $text-color;
+
+    h1 {
+      margin: 10px;
+      padding: 0px;
+    }
+  }
 }
 
 .footer {
