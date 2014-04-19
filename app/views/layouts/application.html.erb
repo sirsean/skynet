@@ -52,6 +52,7 @@
       <% if current_user.admin? %>
         <li><%= link_to "Dashboard", dashboard_index_path %></li>
       <% end %>
+      <li><%= link_to "My Photos", personal_path(current_user) %></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
     <% end %>
   </ul>

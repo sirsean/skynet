@@ -5,5 +5,7 @@ Skynet::Application.routes.draw do
 
   resources :dashboard, only: [:index]
 
+  get "personal/:user_id", to: "personal#show", as: "personal"
+
   root "submissions#new"
 end

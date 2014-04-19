@@ -1,0 +1,11 @@
+<div class="container">
+  <%= will_paginate @submissions %>
+  <% @submissions.each do |submission| %>
+    <div class="personal-photo blue-factor-<%= submission.blue_factor %> text-center">
+      <a href="<%= submission_path(submission) %>">
+      <%= image_tag submission.photo %>
+      </a>
+    </div>
+  <% end %>
+  <%= will_paginate @submissions %>
+</div>
