@@ -6,6 +6,8 @@ Skynet::Application.routes.draw do
   resources :dashboard, only: [:index]
 
   get "personal/:user_id", to: "personal#show", as: "personal"
+  get "nearby", to: "nearby#index", as: "nearby_index"
+  get "nearby/nearby", to: "nearby#nearby"
 
   root "submissions#new"
 end
