@@ -3,7 +3,7 @@
   <% @submissions.each do |submission| %>
     <div class="personal-photo blue-factor-<%= submission.blue_factor %> text-center">
       <a href="<%= submission_path(submission) %>">
-      <%= image_tag submission.photo %>
+      <%= image_tag submission.photo, class: "img-responsive" %>
       </a>
     </div>
   <% end %>
