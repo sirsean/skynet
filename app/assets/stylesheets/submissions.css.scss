@@ -1,7 +1,9 @@
 @import "colors";
 
 /*
-  Typography
+  ========================================
+  Custom styles
+  ========================================
 */
 
 body {
@@ -10,6 +12,12 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
 }
+
+/*
+  ========================================
+  Typography
+  ========================================
+*/
 
 h1 {
   letter-spacing: 2px;
@@ -23,19 +31,19 @@ h2 {
 
 .title {
   h1 {
+    font-weight: 300;
     margin: 10px;
     padding: 0px;
-    font-weight: 300;
 
     a {
-      text-decoration: none;
       color: $text-color;
+      text-decoration: none;
     }
   }
 
   a {
-    text-decoration: none;
     color: $text-color;
+    text-decoration: none;
 
     h1 {
       margin: 10px;
@@ -44,106 +52,11 @@ h2 {
   }
 }
 
-.footer {
-  border-top: 2px solid $text-color;
-
-  .container {
-    padding-top: 16px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 16px;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-}
-
-.btn-default {
-  color: $text-color;
-  background: none;
-  border: none;
-
-  &:hover {
-    color: $text-color;
-    background: none;
-  }
-}
-
-.btn-lower-right {
-  width: 64px;
-  height: 50px;
-}
-
-.submit-row {
-  h2 {
-    margin: 0px;
-    padding: 0px;
-    font-size: 35px;
-  }
-
-  .step {
-    margin-top: 16px;
-    margin-bottom: 12px;
-  }
-}
-
-.btn-default[disabled], .btn-default[disabled]:hover {
-  background-color: none;
-  background: none;
-}
-
-.blue-factor-0 {
-  background-color: $factor-0;
-}
-
-.blue-factor-1 {
-  background-color: $factor-1;
-}
-
-.blue-factor-2 {
-  background-color: $factor-2;
-}
-
-.blue-factor-3 {
-  background-color: $factor-3;
-}
-
-.blue-factor-4 {
-  background-color: $factor-4;
-}
-
-.blue-factor-5 {
-  background-color: $factor-5;
-}
-
-.blue-color-0 {
-  color: $factor-0;
-}
-
-.blue-color-1 {
-  color: $factor-1;
-}
-
-.blue-color-2 {
-  color: $factor-2;
-}
-
-.blue-color-3 {
-  color: $factor-3;
-}
-
-.blue-color-4 {
-  color: $factor-4;
-}
-
-.blue-color-5 {
-  color: $factor-5;
-}
-
-.header-row {
-  .header-bar {
-    height: 5px;
-  }
-}
+/*
+  ========================================
+  Main
+  ========================================
+*/
 
 #picture-container {
   height: 370px;
@@ -241,6 +154,125 @@ h2 {
     border-right: 1px solid $text-color;
   }
 }
+
+/*
+  ========================================
+  Header
+  ========================================
+*/
+
+.blue-factor-0 {
+  background-color: $factor-0;
+}
+
+.blue-factor-1 {
+  background-color: $factor-1;
+}
+
+.blue-factor-2 {
+  background-color: $factor-2;
+}
+
+.blue-factor-3 {
+  background-color: $factor-3;
+}
+
+.blue-factor-4 {
+  background-color: $factor-4;
+}
+
+.blue-factor-5 {
+  background-color: $factor-5;
+}
+
+.blue-color-0 {
+  color: $factor-0;
+}
+
+.blue-color-1 {
+  color: $factor-1;
+}
+
+.blue-color-2 {
+  color: $factor-2;
+}
+
+.blue-color-3 {
+  color: $factor-3;
+}
+
+.blue-color-4 {
+  color: $factor-4;
+}
+
+.blue-color-5 {
+  color: $factor-5;
+}
+
+.header-row {
+  .header-bar {
+    height: 5px;
+  }
+}
+
+/*
+  ========================================
+  Footer
+  ========================================
+*/
+
+.footer {
+  border-top: 2px solid $text-color;
+
+  .container {
+    margin: 0 auto;
+    max-width: 480px;
+    padding-top: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 16px;
+  }
+}
+
+.submit-row {
+  h2 {
+    font-size: 35px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .step {
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+}
+
+.btn-default {
+  background: none;
+  border: none;
+  color: $text-color;
+
+  &:hover {
+    background: none;
+    color: $text-color;
+  }
+}
+
+.btn-lower-right {
+  height: 50px;
+  width: 64px;
+}
+
+.btn-default[disabled], .btn-default[disabled]:hover {
+  background-color: none;
+  background: none;
+}
+
+/*
+  ========================================
+  Misc
+  ========================================
+*/
 
 .spin {
      -webkit-transform-origin: 50% 50%;
