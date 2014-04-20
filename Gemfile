@@ -57,3 +57,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 gem 'will_paginate'
+
+gem "font-awesome-rails"
