@@ -18,7 +18,9 @@ body {
   Typography
   ========================================
 */
-
+p {
+  text-align: center;
+}
 h1 {
   letter-spacing: 2px;
 }
@@ -29,27 +31,13 @@ h2 {
   text-align: center;
 }
 
-.title {
-  h1 {
-    font-weight: 300;
-    margin: 10px;
-    padding: 0px;
-
-    a {
-      color: $text-color;
-      text-decoration: none;
-    }
-  }
-
-  a {
-    color: $text-color;
-    text-decoration: none;
-
-    h1 {
-      margin: 10px;
-      padding: 0px;
-    }
-  }
+h4, h6 {
+  margin: 14px;
+  padding: 0px;
+  font-variant: small-caps;
+  font-weight: 400;
+  letter-spacing: 3;
+  text-align: center;
 }
 
 /*
@@ -74,6 +62,25 @@ h2 {
 #show-container {
   max-width: 480px;
   margin: 0 auto;
+}
+
+#intro-container {
+  padding: 80px 0 0;
+  strong {
+    border: 1px solid $text-color;
+    border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    display: block;
+    font-size: 18px;
+    font-weight: 300;
+    height: 35px;
+    margin: 20px auto 5px;
+    padding: 5px 0;
+    text-align: center;
+    width: 35px;
+  }
 }
 
 .uploaded-photo {
@@ -120,7 +127,7 @@ h2 {
   h2 {
     margin: 14px;
     padding: 0px;
-    font-variant: small-caps;
+    text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 3;
   }
@@ -137,13 +144,14 @@ h2 {
     text-align: center;
 
     h4 {
-      font-size: 16px;
-      text-transform: uppercase;
+      font-size: 12px;
       font-weight: 300;
+      margin: 5px 14px;
+      text-transform: uppercase;
     }
 
     p {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 300;
       margin-bottom: 0;
       text-transform: uppercase;
@@ -160,6 +168,33 @@ h2 {
   Header
   ========================================
 */
+
+.title {
+  h1 {
+    font-weight: 300;
+    margin: 10px;
+    padding: 0px;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+
+    h1 {
+      margin: 10px;
+      padding: 0px;
+    }
+
+    h3 {
+      font-size: 26px;
+    }
+  }
+}
 
 .blue-factor-0 {
   background-color: $factor-0;

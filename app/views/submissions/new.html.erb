@@ -3,10 +3,23 @@
 <%= form_for :submission, url: submissions_path, html: { id: "submission-form" } do |f| %>
 
   <div id="initial-container">
-    <p>Classifying the sky’s color is one way to indicate the level of aerosol loading in the atmosphere.</p>
-    <p>By taking a picture of the sky and matching it against known shades of blue, you can find out about the air quality where you are.</p>
-    <p>And, along with others nearby, can help track the air quality in your area over time.</p>
-    <p>Try to get a good picture of the sky with nothing else in it. If that's impossible, just do your best.</p>
+    <h2>Contribute to air quality analysis using only your camera.</h2>
+    <div id="intro-container">
+      <div class="row no-margin">
+        <div class="col-xs-4 left">
+          <strong>1</strong>
+          <p>Take a photo of the sky.</p>
+        </div>
+        <div class="col-xs-4 middle">
+          <strong>2</strong>
+          <p>Tap the best color match.</p>
+        </div>
+        <div class="col-xs-4 right">
+          <strong>3</strong>
+          <p>Submit to see results.</p>
+        </div>
+      </div>
+    </div>
   </div>
   <div id="picture-container">
     <img id="show-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" class="img-responsive center-block uploaded-photo"></img>
@@ -27,6 +40,7 @@
     </div>
   </div>
 
+
   <%= f.hidden_field :latitude, id: "submission-latitude" %>
   <%= f.hidden_field :longitude, id: "submission-longitude" %>
   <%= f.hidden_field :blue_factor, id: "submission-blue-factor" %>
@@ -38,13 +52,13 @@
     <div class="container row no-margin submit-row">
       <div class="col-xs-offset-2 col-xs-6">
         <div id="step-1" class="step pull-right">
-          Shoot the sky
+          Shoot the sky.
         </div>
         <div id="step-2" class="step pull-right">
-          Match sky color
+          Match sky color.
         </div>
         <div id="step-3" class="step pull-right">
-          Send your results
+          Send your results.
         </div>
       </div>
       <div class="col-xs-4 text-center">
