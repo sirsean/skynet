@@ -2,6 +2,7 @@ class Submission < ActiveRecord::Base
   self.per_page = 10
   mount_uploader :photo, PhotoUploader
   belongs_to :user
+  has_many :votes
 
   def can_delete?(u)
     !u.nil? && (u == self.user || u.admin?)

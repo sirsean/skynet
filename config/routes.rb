@@ -2,6 +2,7 @@ Skynet::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :submissions, only: [:show, :new, :create, :destroy]
+  post "submissions/:id/vote", to: "submissions#vote", method: :post, as: "submission_vote"
 
   resources :dashboard, only: [:index]
 
